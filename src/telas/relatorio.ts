@@ -74,7 +74,7 @@ export function telaRelatorio(): Tela {
     try {
       const f = filtrosAtuais();
       const linhas = await todosLancamentos(f, true);
-      baixarArquivo(`relatorio-sysfin-${f.inicio ?? 'inicio'}-a-${f.fim ?? 'hoje'}.csv`, gerarCsv(estado.categorias, linhas), 'text/csv');
+      baixarArquivo(`relatorio-penny-${f.inicio ?? 'inicio'}-a-${f.fim ?? 'hoje'}.csv`, gerarCsv(estado.categorias, linhas), 'text/csv');
       aviso(`${linhas.length} lançamento(s) exportados.`);
     } catch (e) { tratarErro(e); }
   }));

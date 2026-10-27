@@ -9,7 +9,7 @@ export function telaLogin(): HTMLElement {
 
   const form = el('form', { class: 'login-cartao', novalidate: true },
     el('img', { src: 'icons/icon-192.png', alt: '', class: 'login-logo', width: 72, height: 72 }),
-    el('h1', {}, 'SysFin'),
+    el('h1', {}, 'Penny'),
     el('p', { class: 'texto-suave' }, 'Controle financeiro pessoal'),
     el('label', { class: 'campo' }, 'E-mail', email),
     el('label', { class: 'campo' }, 'Senha', senha),

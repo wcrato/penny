@@ -10,7 +10,7 @@ const texto = (s: string) => "'" + s.replace(/'/g, "''") + "'";
 export function gerarSql(email: string, categorias: Categoria[], lancamentos: Lancamento[], agora = new Date()): string {
   const usuario = `(select id from auth.users where email = ${texto(email)})`;
   const l: string[] = [
-    `-- Backup SysFin de ${email} em ${agora.toISOString()}`,
+    `-- Backup Penny de ${email} em ${agora.toISOString()}`,
     `-- ${categorias.length} categorias, ${lancamentos.length} lançamentos`,
     '-- Para restaurar: rode supabase/01_schema.sql num projeto novo, crie o usuário',
     '-- em Authentication > Users com este e-mail e rode este arquivo no SQL Editor.',

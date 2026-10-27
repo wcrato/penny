@@ -21,7 +21,7 @@ const CSP = [
 
 function cspNoBuild(): Plugin {
   return {
-    name: 'sysfin-csp',
+    name: 'penny-csp',
     apply: 'build',
     transformIndexHtml: () => [
       { tag: 'meta', attrs: { 'http-equiv': 'Content-Security-Policy', content: CSP }, injectTo: 'head-prepend' },
@@ -30,7 +30,7 @@ function cspNoBuild(): Plugin {
 }
 
 export default defineConfig({
-  base: './', // funciona em https://usuario.github.io/sysfin/
+  base: './', // funciona em https://usuario.github.io/penny/
   plugins: [cspNoBuild()],
   define: { __VERSAO__: JSON.stringify(pacote.version) },
   build: { target: 'es2022', sourcemap: false },

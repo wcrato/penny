@@ -44,7 +44,7 @@ function montarApp(): void {
     let tela = telas.get(nome);
     const nova = !tela;
     if (!tela) { tela = def.criar(); telas.set(nome, tela); }
-    titulo.textContent = def.rotulo === 'Início' ? 'SysFin' : def.rotulo;
+    titulo.textContent = def.rotulo === 'Início' ? 'Penny' : def.rotulo;
     botoes.forEach((b) => b.toggleAttribute('aria-current', b.dataset.aba === nome));
     conteudo.replaceChildren(tela.elemento);
     window.scrollTo({ top: 0 });

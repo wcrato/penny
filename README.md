@@ -1,6 +1,6 @@
-# SysFin
+# Penny
 
-Controle financeiro pessoal. App web instalável no Android (PWA), feito com Vite + TypeScript.
+Controle financeiro pessoal (sucessor do antigo SysFin em Laravel). App web instalável no Android (PWA), feito com Vite + TypeScript.
 Os dados ficam na Supabase (plano grátis) e o site no GitHub Pages (grátis).
 
 - **Início:** o mês com receitas, despesas e saldo, filtros e a lista agrupada por dia.

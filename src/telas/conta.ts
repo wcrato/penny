@@ -4,7 +4,7 @@ import { gerarCsv, gerarSql } from '../exportar';
 import { aviso, baixarArquivo, confirmar, el, icone, ocupado } from '../ui/dom';
 import type { Tela } from './tela';
 
-const CHAVE_BACKUP = 'sysfin-ultimo-backup';
+const CHAVE_BACKUP = 'penny-ultimo-backup';
 
 function lerUltimoBackup(): string | null {
   try { return localStorage.getItem(CHAVE_BACKUP); } catch { return null; }
@@ -30,8 +30,8 @@ export function telaConta(): Tela {
       await recarregarCategorias();
       const linhas = await todosLancamentos({ inicio: null, fim: null, tipo: null, categoria: null, busca: '', valor: null }, true);
       const carimbo = new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-');
-      if (formato === 'sql') baixarArquivo(`backup-sysfin-${carimbo}.sql`, gerarSql(estado.email, estado.categorias, linhas), 'application/sql');
-      else baixarArquivo(`backup-sysfin-${carimbo}.csv`, gerarCsv(estado.categorias, linhas), 'text/csv');
+      if (formato === 'sql') baixarArquivo(`backup-penny-${carimbo}.sql`, gerarSql(estado.email, estado.categorias, linhas), 'application/sql');
+      else baixarArquivo(`backup-penny-${carimbo}.csv`, gerarCsv(estado.categorias, linhas), 'text/csv');
       try { localStorage.setItem(CHAVE_BACKUP, new Date().toISOString()); } catch { /* sem armazenamento */ }
       status.textContent = `${linhas.length} lançamentos e ${estado.categorias.length} categorias exportados.`;
       mostrarUltimo();
@@ -68,7 +68,7 @@ export function telaConta(): Tela {
 
   const btnSair = el('button', { type: 'button', class: 'btn perigo' }, icone('sair', 18), 'Sair');
   btnSair.addEventListener('click', async () => {
-    if (await confirmar({ titulo: 'Sair do SysFin?', mensagem: 'Você precisará entrar com e-mail e senha de novo.', confirmar: 'Sair' })) {
+    if (await confirmar({ titulo: 'Sair do Penny?', mensagem: 'Você precisará entrar com e-mail e senha de novo.', confirmar: 'Sair' })) {
       await sb.auth.signOut();
     }
   });
@@ -87,7 +87,7 @@ export function telaConta(): Tela {
     el('div', { class: 'cartao' },
       el('p', { class: 'texto-suave' }, 'Conectado como ', email),
       el('div', { class: 'acoes inicio' }, btnSair),
-      el('p', { class: 'texto-suave versao' }, `SysFin ${__VERSAO__}`),
+      el('p', { class: 'texto-suave versao' }, `Penny ${__VERSAO__}`),
     ),
   );
 

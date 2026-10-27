@@ -1,6 +1,6 @@
 // Guarda só os arquivos do app para abrir rápido e sem internet.
 // Dados financeiros nunca vão para o cache: requisições à Supabase passam direto.
-const CACHE = 'sysfin-v2';
+const CACHE = 'penny-v1';
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.add('./')).then(() => self.skipWaiting()));

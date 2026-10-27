@@ -1,4 +1,4 @@
--- SysFin: estrutura do banco no Supabase (instalação do zero).
+-- Penny: estrutura do banco no Supabase (instalação do zero).
 -- Rode no SQL Editor uma única vez. Depois: crie o usuário e importe os dados.
 
 -- ---------------------------------------------------------------------------
