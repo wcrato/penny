@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.sql.bak
+backup-*.sql
+backup-*.csv
+02_dados.sql
+importacao-privada/
+.env.local
+__pycache__/
+*.pyc
